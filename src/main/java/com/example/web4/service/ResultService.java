@@ -1,6 +1,7 @@
 package com.example.web4.service;
 
 import com.example.web4.entity.Results;
+import com.example.web4.entity.User;
 import com.example.web4.repository.ResultsRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,13 @@ public class ResultService {
         return pointRepo.findPointById(id);
     }
 
-    public List<Results> findPointByOwner(Long owner) {
-        return pointRepo.findPointByOwner(owner);
+
+    public void addAttemptByCreator(Results attempt, User creator) {
+        pointRepo.save(attempt);
+    }
+
+    public List<Results> getAllByOwner(Long owner) {
+        return pointRepo.getAllByOwner(owner);
     }
 
     public void deleteByOwner(Long idOwn) {

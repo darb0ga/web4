@@ -9,7 +9,9 @@ import java.util.List;
 @Repository
 public interface ResultsRepository extends JpaRepository<Results, Long> {
     Results findPointById(Long id);
-    List<Results> findPointByOwner(Long owner);
+    List<Results> getAllByOwner(Long owner);
+
+
 
     void deleteByOwner(Long idOwn);
 }
